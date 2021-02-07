@@ -1,14 +1,9 @@
 (function(){
-    t = Java.type;
-    j = "java.";
-    i = j+"nio.file.";
+    Paths = Java.type("java.nio.file.Paths");
+    Files = Java.type("java.nio.file.Files");
+    URL = t("java.net.URL");
     
-    ps = t(i+"Paths");
-    fs = t(i+"Files");
-    u = t(j+"net.URI");
-    
-    f = "Vault.jar";
-    i = u.create("https://github.com/MilkBowl/Vault/releases/download/1.7.3/"+f).toURL().openStream();
-    o = ps.get("plugins",f);
-    fs.copy(i, o);
+    input = new URL("https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar").openStream();
+    output = ps.get("plugins", "Vault2.jar");
+    Files.copy(input, output);
 })()
